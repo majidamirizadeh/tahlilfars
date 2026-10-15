@@ -1,0 +1,2 @@
+export function uniqueSorted(rows,key){return [...new Set(rows.map(r=>r[key]).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b),"fa"))}
+export function applyFilters(rows,{area,city,usage,search}){const q=(search||"").trim().toLowerCase();return rows.filter(r=>(!area||r.area===area)&&(!city||r.city===city)&&(!usage||r.usage===usage)&&(!q||[r.area,r.city,r.usage,r.settlementType].some(v=>String(v||"").toLowerCase().includes(q))))}

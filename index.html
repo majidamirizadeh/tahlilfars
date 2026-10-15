@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FBFAF7">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icons/icon-192.png" type="image/png"><link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="دفتر درآمد"><title>داشبورد مدیریتی دفتر درآمد</title>
+<link rel="stylesheet" href="./css/tokens.css"><link rel="stylesheet" href="./css/base.css"><link rel="stylesheet" href="./css/layout.css"><link rel="stylesheet" href="./css/components.css"><link rel="stylesheet" href="./css/views.css"><link rel="stylesheet" href="./css/print.css">
+<!-- XLSX فقط داخل Web Worker بارگذاری می‌شود (با Cache معتبر اصلاً دانلود نمی‌شود). Chart.js در پروژه استفاده نمی‌شد و حذف شد.
+     Lucide: نسخهٔ محلی vendor/ (defer)؛ اگر نبود app.js خودکار از CDN می‌گیرد. -->
+<script defer src="./vendor/lucide/lucide.min.js"></script>
+</head>
+<body class="map-view">
+<div class="app-shell">
+<header class="topbar">
+  <div class="header-period">
+    <div class="period-date"><span>از</span><b id="periodFrom">—</b><span>تا</span><b id="periodTo">—</b></div>
+    <div class="year-elapsed"><span><i class="lbl-full">روز سپری‌شده از سال</i><i class="lbl-short">روز از سال</i></span><b id="yearDays">—</b></div>
+  </div>
+  <div class="topbar-actions">
+    <button id="menuBtn" class="icon-btn" title="تنظیمات آستانه‌ها و هشدارها" aria-label="تنظیمات" aria-expanded="false"><i data-lucide="menu"></i></button>
+  <button id="refreshBtn" class="icon-btn" title="به‌روزرسانی"><i data-lucide="refresh-cw"></i></button>
+  </div>
+</header>
+
+<main class="content">
+  <section class="dashboard-title">
+    <div><span class="eyebrow">سامانه گزارش‌گیری و تحلیل</span><h1>داشبورد مدیریتی دفتر درآمد</h1></div>
+    <div class="source-mini">منبع <b id="sourceName">1520.xlsx</b></div>
+  </section>
+
+  <!-- کنترل‌های فیلتر برای نمای نقشه/هوم: کاربری جلو، امور بعد -->
+  <section id="mapFiltersBar" class="map-filters-bar card">
+    <div class="filters-row filters-row-toggles">
+      <button type="button" id="armedForcesBtn" class="cycle-btn armed-btn" data-state="without" title="نیروهای مسلح: بدون نیروی مسلح / فقط نیروی مسلح / با نیروی مسلح (با هر کلیک عوض می‌شود)">
+        <span class="cyc-ico" id="armedForcesIcon" aria-hidden="true"></span><span id="armedForcesLabel">بدون نیروی مسلح</span>
+      </button>
+      <button type="button" id="settlementBtn" class="settlement-btn" data-state="all" title="نوع سکونتگاه: شهر و روستا / فقط شهر / فقط روستا (با هر کلیک عوض می‌شود)">
+        <span class="stl-ico" id="settlementIcon" aria-hidden="true"></span><span id="settlementLabel">شهر/روستا</span>
+      </button>
+    </div>
+    <div class="filters-row filters-row-area">
+      <div class="filter-pair">
+        <div class="filter-btn-wrap">
+          <button type="button" id="areaFilterBtn" class="filter-dropdown-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="areaFilterLabel">همه امور</span>
+            <i data-lucide="chevron-down" class="chev"></i>
+          </button>
+          <div id="areaDropdown" class="filter-dropdown hidden" role="listbox">
+            <div class="dropdown-list" id="areaDropdownList"></div>
+          </div>
+        </div>
+        <button type="button" id="areaClearBtn" class="clear-btn" title="حذف انتخاب امور" disabled>
+          <i data-lucide="eraser"></i>
+        </button>
+      </div>
+      <div class="filter-pair">
+        <div class="filter-btn-wrap">
+          <button type="button" id="usageFilterBtn" class="filter-dropdown-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="usageFilterLabel">فیلتر کاربری</span>
+            <i data-lucide="chevron-down" class="chev"></i>
+          </button>
+          <div id="usageDropdown" class="filter-dropdown usage-dropdown hidden" role="listbox">
+            <div class="usage-grid" id="usageDropdownGrid"></div>
+          </div>
+        </div>
+        <button type="button" id="usageClearBtn" class="clear-btn" title="حذف انتخاب کاربری" disabled>
+          <i data-lucide="eraser"></i>
+        </button>
+      </div>
+    </div>
+    <div class="citysub-inline" id="citySubInline" hidden>
+      <div class="citysub-head">
+        <span>شهر و بخش‌های <b id="citySubAreaName"></b></span>
+        <button type="button" id="citySubClearBtn" class="clear-btn" title="حذف انتخاب شهر/بخش" disabled>
+          <i data-lucide="eraser"></i>
+        </button>
+      </div>
+      <div class="citysub-chips" id="citySubChips"></div>
+    </div>
+  </section>
+
+  <!-- تب‌های حالت برای نمای نقشه (آمار / سرانه / شاخص) -->
+  <section id="mapModeTabs" class="map-mode-tabs-bar" aria-label="نوع گزارش">
+    <button class="map-mode-tab active" data-mode="stats">آمارها</button>
+    <button class="map-mode-tab" data-mode="percapita">سرانه‌ها</button>
+    <button class="map-mode-tab" data-mode="indices">شاخص‌ها</button>
+  </section>
+
+  <div id="mapContainer"></div>
+  <div id="viewContainer"></div>
+  <div class="source-note">گزارش با جایگزینی فایل Excel و بارگذاری مجدد، به‌صورت خودکار به‌روزرسانی می‌شود.</div>
+</main>
+
+<nav class="bottom-ribbon" aria-label="ناوبری">
+  <button class="ribbon-item side" data-view="anomaly" title="تحلیل مصرف و ناهنجاری"><i data-lucide="radar"></i><span>مصرف</span></button>
+  <button class="ribbon-item side" data-view="finance" title="تحلیل مالی و عملکردی"><i data-lucide="wallet"></i><span>مالی</span></button>
+  <button class="ribbon-item home active" data-view="home"><i data-lucide="home"></i><span>دفتردرآمد</span></button>
+  <button class="ribbon-item side" data-view="analytics" title="رتبه‌بندی و هشدارها"><i data-lucide="activity"></i><span>رتبه</span></button>
+  <button class="ribbon-item side" data-view="report" title="گزارش چاپ / PDF"><i data-lucide="printer"></i><span>گزارش</span></button>
+  <div class="ribbon-help">راهنما</div>
+</nav>
+</div>
+<script type="module" src="./js/app.js"></script>
+</body></html>

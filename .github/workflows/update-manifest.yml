@@ -1,0 +1,27 @@
+# اختیاری: با تغییر فایل‌های Excel، hash/version در data/manifest.json خودکار به‌روز و commit می‌شود.
+# اجرای برنامه به این Action وابسته نیست؛ بدون آن همین کار را دستی با  node tools/build-manifest.mjs  انجام دهید
+# (و اگر manifest فراموش شود، کلید «به‌روزرسانی» با اثرانگشت HTTP فایل هم تغییر را تشخیص می‌دهد).
+name: update-manifest
+on:
+  push:
+    paths: ["data/**.xlsx", "js/data/dataRegistry.js"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node tools/build-manifest.mjs
+      - name: Commit manifest if changed
+        run: |
+          if [ -n "$(git status --porcelain data/manifest.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/manifest.json
+            git commit -m "chore: update data manifest [skip ci]"
+            git push
+          fi

@@ -1,0 +1,46 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   base.css — ریست، عناصر پایه، تایپوگرافی، فوکوس، حرکت
+   ═══════════════════════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  margin:0;min-height:100vh;min-height:100dvh;
+  background:var(--paper);color:var(--ink);
+  font-family:var(--font);font-size:var(--fs-300);font-weight:var(--fw-regular);line-height:var(--lh-base);
+  font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,h5{margin:0;line-height:var(--lh-tight);font-weight:var(--fw-bold);text-wrap:balance}
+p{margin:0}
+b,strong{font-weight:var(--fw-bold)}
+em,i{font-style:normal}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+button:disabled{cursor:default}
+table{border-collapse:collapse}
+[hidden]{display:none!important}
+.hidden{display:none}
+::selection{background:var(--accent-soft);color:var(--accent)}
+
+/* فوکوس واضح برای صفحه‌کلید */
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:var(--r-ctl)}
+:focus:not(:focus-visible){outline:0}
+
+/* اسکرول‌بار ظریف داخل ظرف‌های داده */
+*{scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:var(--r-pill);border:2px solid transparent;background-clip:content-box}
+
+/* اعداد: واحد کوچک‌تر و کم‌رنگ‌تر از عدد */
+.unit{font-size:var(--fs-200);font-weight:var(--fw-medium);color:var(--ink-3);white-space:nowrap}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* حرکت: فقط برای کاربرانی که آن را کم نکرده‌اند */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}

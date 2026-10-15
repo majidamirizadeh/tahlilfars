@@ -1,0 +1,17 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   print.css — خروجی چاپ/PDF تب «گزارش»؛ رنگ‌های معنایی عیناً چاپ می‌شوند
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media print{
+  body.report-view{background:#fff!important}
+  body.report-view .topbar,body.report-view .bottom-ribbon,body.report-view #mapFiltersBar,
+  body.report-view #mapModeTabs,body.report-view .dashboard-title,body.report-view .source-note,
+  body.report-view .rp-controls,body.report-view .app-toast{display:none!important}
+  body.report-view .app-shell{padding:0;min-height:0}
+  body.report-view .content{width:100%;max-width:none;margin:0;padding:0;display:block}
+  body.report-view #viewContainer{animation:none}
+  body.report-view .rp-root{margin:0;display:block}
+  body.report-view .rp-sheet{border:0;box-shadow:none;border-radius:0;padding:0;overflow:visible}
+  body.report-view .rp-table{min-width:0}
+  body.report-view *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #settingsRoot,.st-backdrop,.st-panel{display:none!important}
+}

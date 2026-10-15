@@ -1,0 +1,102 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   layout.css — قالب صفحه: Shell · Topbar · ناوبری · ظرف محتوا · شبکهٔ هوم · نمایش/پنهان‌سازی نماها
+   ناوبری: دسکتاپ (≥1024) = تب‌های سربرگ؛ موبایل/تبلت = نوار پایین چسبیده با safe-area.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.app-shell{min-height:100vh;min-height:100dvh;padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + var(--s-3))}
+
+/* ── Topbar ── */
+.topbar{
+  position:sticky;top:0;z-index:var(--z-sticky);
+  height:var(--topbar-h);
+  display:flex;align-items:center;gap:var(--s-3);
+  padding-inline:max(var(--gutter),calc((100% - var(--container))/2 + var(--gutter)));
+  background:var(--panel);border-bottom:1px solid var(--line);
+}
+.header-period{flex:1;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:var(--s-4)}
+.period-date{display:flex;align-items:baseline;gap:var(--s-2);font-size:var(--fs-200);white-space:nowrap;color:var(--ink-3)}
+.period-date b{font-size:var(--fs-300);font-weight:var(--fw-bold);color:var(--ink);direction:ltr}
+.period-date span{font-weight:var(--fw-medium)}
+.year-elapsed{display:flex;align-items:baseline;gap:var(--s-2);font-size:var(--fs-200);color:var(--ink-3);white-space:nowrap}
+.year-elapsed b{font-size:var(--fs-400);font-weight:var(--fw-heavy);color:var(--ink)}
+.year-elapsed i{font-style:normal}
+.lbl-short{display:none}
+.topbar-actions{display:flex;align-items:center;gap:var(--s-2);flex-shrink:0}
+
+/* ── ناوبری اصلی (همان عنصر .bottom-ribbon؛ فقط ظاهر عوض شده) ── */
+.bottom-ribbon{
+  position:fixed;z-index:var(--z-nav);direction:ltr;
+  display:flex;align-items:stretch;justify-content:center;
+  background:var(--panel);
+}
+.ribbon-item{
+  position:relative;appearance:none;border:0;background:transparent;color:var(--ink-3);
+  display:flex;align-items:center;justify-content:center;gap:var(--s-2);
+  direction:rtl;font-size:var(--fs-300);font-weight:var(--fw-medium);line-height:1;
+  transition:color var(--dur-1) var(--ease),background-color var(--dur-1) var(--ease);
+}
+.ribbon-item svg{width:1.125rem;height:1.125rem;stroke-width:1.75;flex-shrink:0}
+.ribbon-item:hover{color:var(--ink)}
+.ribbon-item.active{color:var(--accent);font-weight:var(--fw-bold)}
+.ribbon-item::after{content:"";position:absolute;background:var(--accent);transform:scaleX(0);transition:transform var(--dur-2) var(--ease)}
+.ribbon-item.active::after{transform:scaleX(1)}
+.ribbon-item:disabled{opacity:.45}
+.ribbon-help{display:none}
+
+/* دسکتاپ: تب‌های سربرگ، وسط نوار بالا */
+@media (min-width:1024px){
+  .app-shell{padding-bottom:var(--s-6)}
+  .bottom-ribbon{top:0;left:50%;transform:translateX(-50%);height:var(--topbar-h);gap:var(--s-1)}
+  .ribbon-item{padding-inline:var(--s-4);height:100%}
+  .ribbon-item::after{inset-inline:var(--s-3);bottom:-1px;height:2px;border-radius:2px 2px 0 0}
+  .ribbon-item:hover{background:var(--paper)}
+}
+/* موبایل و تبلت: نوار پایین چسبیده، هدف لمس ≥ ۴۴px */
+@media (max-width:1023.98px){
+  .bottom-ribbon{
+    inset-inline:0;bottom:0;
+    height:calc(var(--nav-h) + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);
+    display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+    border-top:1px solid var(--line);
+  }
+  .ribbon-item{flex-direction:column;gap:.3rem;min-height:3.25rem;font-size:var(--fs-100);padding:var(--s-2) 0 var(--s-1)}
+  .ribbon-item svg{width:1.375rem;height:1.375rem}
+  .ribbon-item::after{inset-inline:25%;top:-1px;height:2px;border-radius:0 0 2px 2px}
+  .ribbon-item.home svg{width:1.5rem;height:1.5rem}
+}
+
+/* ── ظرف محتوا ── */
+.content{width:100%;max-width:var(--container);margin-inline:auto;padding:var(--s-4) var(--gutter) var(--s-5)}
+.dashboard-title{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s-4);margin-bottom:var(--s-3)}
+.eyebrow{display:block;font-size:var(--fs-100);font-weight:var(--fw-medium);color:var(--ink-3);letter-spacing:0}
+.dashboard-title h1{font-size:var(--fs-500);font-weight:var(--fw-heavy);letter-spacing:0}
+.source-mini{font-size:var(--fs-100);color:var(--ink-3);white-space:nowrap}
+.source-mini b{color:var(--ink-2);font-weight:var(--fw-bold);direction:ltr;display:inline-block}
+.source-note{text-align:center;color:var(--ink-3);font-size:var(--fs-100);padding:var(--s-5) 0 var(--s-2);max-width:var(--measure);margin-inline:auto}
+
+/* ── نماها: هر تب فقط اجزای خودش را نشان می‌دهد ── */
+#mapContainer.hidden{display:none}
+body.analytics-view #mapContainer,body.analytics-view #mapModeTabs,
+body.report-view #mapContainer,body.report-view #mapModeTabs,
+body.anomaly-view #mapContainer,body.anomaly-view #mapModeTabs,body.anomaly-view #mapFiltersBar,
+body.finance-view #mapContainer,body.finance-view #mapModeTabs,body.finance-view #mapFiltersBar{display:none}
+
+/* ── شبکهٔ صفحهٔ دفتر درآمد: نقشه کنار دفتر ردیف‌ها (دسکتاپ) ── */
+@media (min-width:1100px){
+  body.map-view .content{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);column-gap:var(--s-5);align-items:start}
+  body.map-view .content>.dashboard-title,
+  body.map-view .content>.map-filters-bar,
+  body.map-view .content>.map-mode-tabs-bar,
+  body.map-view .content>.source-note{grid-column:1/-1}
+  body.map-view #mapContainer{grid-column:1;grid-row:4;position:sticky;top:calc(var(--topbar-h) + var(--s-4));z-index:var(--z-base)}
+  body.map-view #viewContainer{grid-column:2;grid-row:4;min-width:0}
+}
+
+/* ── موبایل: عنوان فشرده‌تر ── */
+@media (max-width:720px){
+  .topbar{padding-inline:var(--s-3);gap:var(--s-2)}
+  .period-date{gap:var(--s-1)}
+  .lbl-full{display:none}.lbl-short{display:inline}
+  .dashboard-title h1{font-size:var(--fs-400)}
+  .source-mini{display:none}
+}
+@media (max-width:360px){.year-elapsed span{display:none}}

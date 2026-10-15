@@ -1,0 +1,460 @@
+/* ── آیکون‌های ماسکی (مسیرها از Lucide؛ بدون وابستگی به بارگذاری کتابخانه، رنگ = currentColor) ── */
+:root{
+  --i-users:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+  --i-droplet:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z'/%3E%3C/svg%3E");
+  --i-banknote:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='12' x='2' y='6' rx='2'/%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3Cpath d='M6 12h.01M18 12h.01'/%3E%3C/svg%3E");
+  --i-circle-check:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");
+  --i-triangle-alert:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
+  --i-percent:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='19' x2='5' y1='5' y2='19'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.5'/%3E%3Ccircle cx='17.5' cy='17.5' r='2.5'/%3E%3C/svg%3E");
+  --i-tag:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z'/%3E%3Ccircle cx='7.5' cy='7.5' r='.5' fill='black'/%3E%3C/svg%3E");
+  --i-timer:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='10' x2='14' y1='2' y2='2'/%3E%3Cline x1='12' x2='15' y1='14' y2='11'/%3E%3Ccircle cx='12' cy='14' r='8'/%3E%3C/svg%3E");
+  --i-trending-up:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='22 7 13.5 15.5 8.5 10.5 2 17'/%3E%3Cpolyline points='16 7 22 7 22 13'/%3E%3C/svg%3E");
+  --i-trending-down:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='22 17 13.5 8.5 8.5 13.5 2 7'/%3E%3Cpolyline points='16 17 22 17 22 11'/%3E%3C/svg%3E");
+  --i-scale:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/%3E%3Cpath d='m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/%3E%3Cpath d='M7 21h10'/%3E%3Cpath d='M12 3v18'/%3E%3Cpath d='M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2'/%3E%3C/svg%3E");
+  --i-building:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z'/%3E%3Cpath d='M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2'/%3E%3Cpath d='M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2'/%3E%3Cpath d='M10 6h4'/%3E%3Cpath d='M10 10h4'/%3E%3Cpath d='M10 14h4'/%3E%3Cpath d='M10 18h4'/%3E%3C/svg%3E");
+  --i-sprout:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 20h10'/%3E%3Cpath d='M10 20c5.5-2.5.8-6.4 3-10'/%3E%3Cpath d='M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z'/%3E%3Cpath d='M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z'/%3E%3C/svg%3E");
+  --i-layers:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z'/%3E%3Cpath d='m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65'/%3E%3Cpath d='m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65'/%3E%3C/svg%3E");
+  --i-ban:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m4.9 4.9 14.2 14.2'/%3E%3C/svg%3E");
+  --i-shield:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z'/%3E%3C/svg%3E");
+  --i-chevron-down:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  --i-list:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12h.01'/%3E%3Cpath d='M3 18h.01'/%3E%3Cpath d='M3 6h.01'/%3E%3Cpath d='M8 12h13'/%3E%3Cpath d='M8 18h13'/%3E%3Cpath d='M8 6h13'/%3E%3C/svg%3E");
+  --i-pin:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 17v5'/%3E%3Cpath d='M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z'/%3E%3C/svg%3E");
+  --i-arrow-up:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 7-7 7 7'/%3E%3Cpath d='M12 19V5'/%3E%3C/svg%3E");
+  --i-arrow-down:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14'/%3E%3Cpath d='m19 12-7 7-7-7'/%3E%3C/svg%3E");
+  --i-chevrons-up:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m17 11-5-5-5 5'/%3E%3Cpath d='m17 18-5-5-5 5'/%3E%3C/svg%3E");
+  --i-chevrons-down:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 6 5 5 5-5'/%3E%3Cpath d='m7 13 5 5 5-5'/%3E%3C/svg%3E");
+  --i-target:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Ccircle cx='12' cy='12' r='6'/%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3C/svg%3E");
+  --i-circle-dot:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Ccircle cx='12' cy='12' r='1'/%3E%3C/svg%3E");
+  --i-diamond:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z'/%3E%3C/svg%3E");
+  --i-circle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3C/svg%3E");
+  --i-package:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7.5 4.27 9 5.15'/%3E%3Cpath d='M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z'/%3E%3Cpath d='m3.3 7 8.7 5 8.7-5'/%3E%3Cpath d='M12 22V12'/%3E%3C/svg%3E");
+}
+.ico{display:inline-block;flex-shrink:0;width:1.125em;height:1.125em;background-color:currentColor;-webkit-mask:var(--ico) center/contain no-repeat;mask:var(--ico) center/contain no-repeat;vertical-align:-.2em}
+.ico-users{--ico:var(--i-users)}
+.ico-droplet{--ico:var(--i-droplet)}
+.ico-banknote{--ico:var(--i-banknote)}
+.ico-circle-check{--ico:var(--i-circle-check)}
+.ico-triangle-alert{--ico:var(--i-triangle-alert)}
+.ico-percent{--ico:var(--i-percent)}
+.ico-tag{--ico:var(--i-tag)}
+.ico-timer{--ico:var(--i-timer)}
+.ico-trending-up{--ico:var(--i-trending-up)}
+.ico-trending-down{--ico:var(--i-trending-down)}
+.ico-scale{--ico:var(--i-scale)}
+.ico-building{--ico:var(--i-building)}
+.ico-sprout{--ico:var(--i-sprout)}
+.ico-layers{--ico:var(--i-layers)}
+.ico-ban{--ico:var(--i-ban)}
+.ico-shield{--ico:var(--i-shield)}
+.ico-chevron-down{--ico:var(--i-chevron-down)}
+.ico-list{--ico:var(--i-list)}
+.ico-pin{--ico:var(--i-pin)}
+.ico-arrow-up{--ico:var(--i-arrow-up)}
+.ico-arrow-down{--ico:var(--i-arrow-down)}
+.ico-chevrons-up{--ico:var(--i-chevrons-up)}
+.ico-chevrons-down{--ico:var(--i-chevrons-down)}
+.ico-target{--ico:var(--i-target)}
+.ico-circle-dot{--ico:var(--i-circle-dot)}
+.ico-diamond{--ico:var(--i-diamond)}
+.ico-circle{--ico:var(--i-circle)}
+.ico-package{--ico:var(--i-package)}
+/* ═══════════════════════════════════════════════════════════════════════════
+   components.css — اجزای مشترک بین همهٔ نماها
+   (آیکون‌ها · پنل · دکمه‌ها · چیپ‌ها · فیلترها · تب‌ها · ردیف‌های دفتر · برچسب‌ها · جدول · سوییچ · تنظیمات · اعلان)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── پنل: سطح پایهٔ همهٔ کادرها؛ فقط خط مویی، بدون سایه و شیشه ── */
+.card,.ax-card,.an-panel,.fin-panel,.an-help,.fin-help,.an-local-filters,.an-filters,.an-card,.fin-card,.zw-card,.fin-stat,.ax-fin-col{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r-panel);
+}
+.an-panel,.fin-panel,.ax-card{padding:var(--s-4)}
+.ax-card h3,.an-panel h3,.fin-panel h3{font-size:var(--fs-400);font-weight:var(--fw-bold);color:var(--ink);margin:0 0 var(--s-3);display:flex;align-items:center;gap:var(--s-2)}
+.ax-card h3 .ico{color:var(--ink-3)}
+
+/* ── دکمه‌های آیکونی (نوار بالا، پاک‌کن) ── */
+.icon-btn{
+  width:var(--ctl-h);height:var(--ctl-h);display:grid;place-items:center;padding:0;flex-shrink:0;
+  border:1px solid var(--line-2);background:var(--panel);color:var(--ink-2);border-radius:var(--r-ctl);
+  transition:background-color var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease),color var(--dur-1) var(--ease),transform var(--dur-1) var(--ease);
+}
+.icon-btn svg{width:1.0625rem;height:1.0625rem;stroke-width:1.75}
+.icon-btn:hover{background:var(--paper-2);border-color:var(--ink-4);color:var(--ink)}
+.icon-btn:active{transform:scale(.96)}
+#menuBtn[aria-expanded=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.icon-btn.refreshed{border-color:var(--good-line);background:var(--good-bg);color:var(--good)}
+.icon-btn.refreshing svg{animation:spin .8s linear infinite}
+
+.clear-btn,.map-clear-btn{
+  display:grid;place-items:center;padding:0;flex-shrink:0;
+  width:var(--ctl-h);height:var(--ctl-h);border:1px solid var(--line-2);background:var(--panel);color:var(--ink-3);border-radius:var(--r-ctl);
+  transition:background-color var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease),color var(--dur-1) var(--ease),opacity var(--dur-1) var(--ease);
+}
+.clear-btn svg,.map-clear-btn svg{width:1rem;height:1rem;stroke-width:1.75}
+.clear-btn:disabled,.map-clear-btn:disabled{opacity:.4}
+.clear-btn.active,.map-clear-btn.active{opacity:1;color:var(--on-accent);background:var(--accent);border-color:var(--accent)}
+.clear-btn.active:hover,.map-clear-btn.active:hover{background:var(--accent-hover)}
+.citysub-head .clear-btn{width:2rem;height:2rem}
+
+/* ── دکمه‌های متنی: اصلی / ثانویه ── */
+.rp-print{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);min-height:var(--ctl-h);padding:0 var(--s-5);
+  border:1px solid var(--accent);border-radius:var(--r-ctl);background:var(--accent);color:var(--on-accent);
+  font-size:var(--fs-300);font-weight:var(--fw-bold);transition:background-color var(--dur-1) var(--ease),transform var(--dur-1) var(--ease);
+}
+.rp-print:hover{background:var(--accent-hover)}
+.rp-print:active{transform:translateY(1px)}
+.rp-print:disabled{opacity:.45}
+.fin-share-btn,.fin-back,.ax-drill-back,.ax-cx-back,.fin-more,.an-lvauto,.st-resetall,.an-fclear{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-1);min-height:2rem;padding:0 var(--s-3);
+  border:1px solid var(--line-2);border-radius:var(--r-ctl);background:var(--panel);color:var(--ink-2);
+  font-size:var(--fs-200);font-weight:var(--fw-bold);white-space:nowrap;
+  transition:background-color var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease),color var(--dur-1) var(--ease);
+}
+.fin-share-btn:hover,.fin-back:hover,.ax-drill-back:hover,.ax-cx-back:hover,.fin-more:hover,.an-lvauto:hover,.an-fclear:hover{background:var(--paper-2);border-color:var(--ink-4);color:var(--ink)}
+.fin-share-btn.dim{opacity:.45}
+.fin-more{display:flex;margin:var(--s-3) auto 0;border-style:dashed;min-height:var(--ctl-h);padding-inline:var(--s-5)}
+.st-resetall{color:var(--crit);border-color:var(--crit-line)}
+.st-resetall:hover{background:var(--crit-bg)}
+.st-resetall:disabled{opacity:.4}
+.an-fclear{color:var(--crit);border-color:var(--crit-line)}
+.an-fclear:disabled{opacity:.35}
+.fin-clear.active{color:var(--crit);border-color:var(--crit-line);background:var(--crit-bg);opacity:1}
+
+/* ── چیپ‌ها (کلیدهای انتخابی کوچک) — یک الگو برای همهٔ نماها ── */
+:is(.an-chip,.map-sub-tab,.usage-item,.rp-chip,.st-chip,.citysub-chip,.an-fchip,.fin-cnt,.fin-crumb){
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-1);min-height:2rem;padding:0 var(--s-3);
+  border:1px solid var(--line-2);background:var(--panel);color:var(--ink-2);border-radius:var(--r-ctl);
+  font-size:var(--fs-200);font-weight:var(--fw-medium);line-height:1.3;white-space:nowrap;
+  transition:background-color var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease),color var(--dur-1) var(--ease),transform var(--dur-1) var(--ease);
+}
+:is(.an-chip,.map-sub-tab,.usage-item,.rp-chip,.st-chip,.citysub-chip,.an-fchip,.fin-cnt,.fin-crumb):hover{border-color:var(--ink-4);color:var(--ink)}
+:is(.an-chip,.map-sub-tab,.usage-item,.rp-chip,.st-chip,.citysub-chip,.an-fchip,.fin-cnt,.fin-crumb):active{transform:scale(.97)}
+:is(.an-chip.active,.map-sub-tab.active,.usage-item.selected,.rp-chip.on,.st-chip.on,.citysub-chip.selected,.an-fchip.on,.fin-cnt.on,.fin-crumb.on){
+  background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:var(--fw-bold);
+}
+.an-chip small,.fin-cnt b{color:inherit;opacity:.75;font-weight:var(--fw-medium)}
+.fin-cnt b{margin-inline-end:var(--s-1);opacity:1;font-weight:var(--fw-bold)}
+.rp-chip{--gc:var(--accent)}
+.rp-chip.on{background:color-mix(in srgb,var(--gc) 12%,var(--panel));border-color:var(--gc);color:var(--gc)}
+.fin-crumb{border-radius:var(--r-pill)}
+.fin-crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-1)}
+.fin-sep{color:var(--ink-4);font-size:var(--fs-400)}
+
+/* ── کلیدهای قطعه‌ای (segmented) ── */
+.an-seg{display:inline-flex;border:1px solid var(--line-2);border-radius:var(--r-ctl);overflow:hidden;background:var(--panel)}
+.an-seg-btn{border:0;background:transparent;padding:0 var(--s-4);min-height:var(--ctl-h);font-size:var(--fs-200);font-weight:var(--fw-bold);color:var(--ink-2);transition:background-color var(--dur-1) var(--ease),color var(--dur-1) var(--ease)}
+.an-seg-btn:hover{background:var(--paper-2)}
+.an-seg-btn.active{background:var(--accent);color:var(--on-accent)}
+.rp-seg{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);width:100%;max-width:32rem}
+.rp-seg .an-seg-btn{text-align:center;padding-inline:var(--s-1)}
+.rp-seg.rp-multi,.rp-modes{gap:var(--s-2);border:0;background:transparent;overflow:visible;border-radius:0;max-width:100%}
+.rp-modes{display:flex;flex-wrap:wrap}
+.rp-multi .an-seg-btn,.rp-modes .an-seg-btn{border:1px solid var(--line-2);border-radius:var(--r-ctl);background:var(--panel);color:var(--ink-2);font-weight:var(--fw-medium);position:relative}
+.rp-modes .an-seg-btn{flex:0 0 auto;padding-inline:var(--s-3)}
+.rp-multi .an-seg-btn.active,.rp-modes .an-seg-btn.active{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:var(--fw-bold)}
+.rp-multi .an-seg-btn:disabled{opacity:.4;background:var(--paper-2);color:var(--ink-3);cursor:not-allowed}
+.rp-ord{display:inline-grid;place-items:center;min-width:1rem;height:1rem;margin-inline-start:var(--s-1);border-radius:var(--r-pill);background:var(--on-accent);color:var(--accent);font-size:var(--fs-100);font-weight:var(--fw-heavy)}
+
+/* ── فرم‌ها ── */
+:is(.rp-select,.an-filters select,.an-table-tools select,.fin-f select,.fin-tools select,.an-more-grid select,.an-more-grid input,.fin-pill){
+  min-height:var(--ctl-h);padding:0 var(--s-3);border:1px solid var(--line-2);border-radius:var(--r-ctl);background:var(--panel);color:var(--ink);font-size:var(--fs-300);font-weight:var(--fw-medium);min-width:0
+}
+:is(.rp-select,.an-filters select,.an-table-tools select,.fin-f select,.fin-tools select,.an-more-grid select,.an-more-grid input,.fin-pill):hover{border-color:var(--ink-4)}
+.rp-select{min-width:9.5rem}
+.st-num{width:5.25rem;min-height:2.25rem;padding:0 var(--s-2);border:1px solid var(--line-2);border-radius:var(--r-ctl);background:var(--panel);font-size:var(--fs-300);font-weight:var(--fw-bold);text-align:center;direction:ltr}
+.st-num:focus{border-color:var(--accent);outline:2px solid var(--focus);outline-offset:1px}
+label.an-check,.an-table-tools label,.fin-tools label,.an-filters label{display:flex;align-items:center;gap:var(--s-2);font-size:var(--fs-200);font-weight:var(--fw-bold);color:var(--ink-2)}
+.an-filters label,.an-more-grid label,.fin-f{flex-direction:column;align-items:stretch;gap:var(--s-1)}
+.an-check{flex-direction:row!important;align-items:center!important}
+.fin-f{display:flex;font-size:var(--fs-200);font-weight:var(--fw-bold);color:var(--ink-2);min-width:0}
+.an-more-grid label{display:flex;font-size:var(--fs-200);font-weight:var(--fw-bold);color:var(--ink-2)}
+.an-table-tools,.fin-tools{display:flex;flex-wrap:wrap;gap:var(--s-3) var(--s-4);align-items:center;margin-bottom:var(--s-3);padding:var(--s-2) var(--s-3);background:var(--paper-2);border-radius:var(--r-ctl)}
+.fin-f select:disabled{opacity:.55}
+
+/* ── سوییچ ── */
+.rp-switch{display:inline-flex;align-items:center;gap:var(--s-2);font-size:var(--fs-300);font-weight:var(--fw-bold);cursor:pointer}
+.rp-switch input{position:absolute;opacity:0;pointer-events:none}
+.rp-track{width:2.5rem;height:1.375rem;border-radius:var(--r-pill);background:var(--line-2);position:relative;transition:background-color var(--dur-2) var(--ease);flex-shrink:0}
+.rp-track::after{content:"";position:absolute;top:2px;right:2px;width:calc(1.375rem - 4px);height:calc(1.375rem - 4px);border-radius:50%;background:var(--panel);transition:right var(--dur-2) var(--ease);box-shadow:0 1px 2px rgba(28,38,48,.3)}
+.rp-switch input:checked+.rp-track{background:var(--accent)}
+.rp-switch input:checked+.rp-track::after{right:calc(100% - 1.375rem + 2px)}
+.rp-switch input:focus-visible+.rp-track{outline:2px solid var(--focus);outline-offset:2px}
+
+/* ═══ نوار فیلتر (هوم، رتبه، گزارش، مالی، مصرف) ═══ */
+.map-filters-bar{
+  display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-2) var(--s-3);
+  padding:var(--s-2) var(--s-3);margin-bottom:var(--s-3);position:relative;z-index:var(--z-filters);
+}
+.filters-row{display:flex;align-items:center;gap:var(--s-2);flex-wrap:wrap;min-width:0}
+@media (min-width:900px){.map-filters-bar>.filters-row{display:contents}}
+@media (max-width:899px){
+  .filters-row{display:grid;grid-template-columns:1fr 1fr;width:100%;gap:var(--s-2)}
+  .filters-row>*{min-width:0}
+  .filter-pair{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s-1);align-items:center}
+  .filter-pair>.filter-btn-wrap{grid-column:1}
+  .filter-pair>.clear-btn{grid-column:2;position:static}
+  .filters-row .filter-dropdown-btn{min-width:0;max-width:none;width:100%}
+}
+.filter-pair{display:flex;align-items:center;gap:var(--s-1);min-width:0}
+.filter-pair[hidden]{display:none}
+.filter-btn-wrap{position:relative;min-width:0}
+.filter-dropdown-btn{
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);
+  min-height:var(--ctl-h);min-width:9rem;max-width:14rem;padding:0 var(--s-3);
+  border:1px solid var(--line-2);background:var(--panel);color:var(--ink);border-radius:var(--r-ctl);
+  font-size:var(--fs-300);font-weight:var(--fw-medium);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  transition:border-color var(--dur-1) var(--ease),background-color var(--dur-1) var(--ease);
+}
+.filter-dropdown-btn:hover,.filter-dropdown-btn[aria-expanded=true]{border-color:var(--accent);background:var(--panel)}
+.filter-dropdown-btn .chev{width:1rem;height:1rem;color:var(--ink-3);flex-shrink:0;stroke-width:1.75;transition:transform var(--dur-2) var(--ease)}
+.filter-dropdown-btn[aria-expanded=true] .chev{transform:rotate(180deg)}
+/* پنجرهٔ بازشو: موقعیت را JS می‌دهد (fixed)؛ همیشه روی همه‌چیز */
+.filter-dropdown{
+  position:fixed;z-index:var(--z-pop);min-width:11rem;overflow:auto;padding:var(--s-2);
+  background:var(--panel);border:1px solid var(--line-2);border-radius:var(--r-panel);box-shadow:var(--shadow-pop);
+  animation:fade var(--dur-1) var(--ease);
+}
+.filter-dropdown.hidden{display:none}
+.dropdown-list{display:flex;flex-direction:column;gap:2px}
+.dropdown-item{
+  min-height:2.25rem;padding:0 var(--s-3);border:0;background:transparent;text-align:right;border-radius:var(--r-ctl);
+  font-size:var(--fs-300);font-weight:var(--fw-medium);color:var(--ink);transition:background-color var(--dur-1) var(--ease);
+}
+.dropdown-item:hover{background:var(--paper-2)}
+.dropdown-item.selected{background:var(--accent-soft);color:var(--accent);font-weight:var(--fw-bold)}
+.usage-dropdown{min-width:19rem;max-width:22rem}
+.usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-1)}
+.usage-item{white-space:normal;overflow:hidden;text-overflow:ellipsis;min-height:2.25rem;padding:var(--s-1) var(--s-2)}
+.usage-preset{grid-column:1/-1;border-style:dashed;color:var(--accent);font-weight:var(--fw-bold)}
+
+/* کلیدهای چرخشی (نیروی مسلح · شهر/روستا) و روشن/خاموش */
+:is(.cycle-btn,.settlement-btn,.toggle-chip-btn){
+  display:inline-flex;align-items:center;gap:var(--s-2);min-height:var(--ctl-h);padding:0 var(--s-3);flex-shrink:0;
+  border:1px solid var(--line-2);border-radius:var(--r-ctl);background:var(--panel);color:var(--ink-2);
+  font-size:var(--fs-300);font-weight:var(--fw-bold);white-space:nowrap;
+  transition:background-color var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease),color var(--dur-1) var(--ease),transform var(--dur-1) var(--ease);
+}
+:is(.cycle-btn,.settlement-btn,.toggle-chip-btn):hover{border-color:var(--ink-4);color:var(--ink)}
+:is(.cycle-btn,.settlement-btn,.toggle-chip-btn):active{transform:scale(.97)}
+.cyc-ico,.stl-ico{
+  display:inline-block;flex-shrink:0;width:1.0625rem;height:1.0625rem;font-size:0;line-height:0;color:inherit;   /* ایموجی متنی پنهان؛ آیکون با ماسک */
+  background-color:currentColor;-webkit-mask:var(--ico) center/contain no-repeat;mask:var(--ico) center/contain no-repeat;
+}
+.armed-btn[data-state="with"] .cyc-ico{--ico:var(--i-users)}
+.armed-btn[data-state="without"] .cyc-ico{--ico:var(--i-ban)}
+.armed-btn[data-state="only"] .cyc-ico{--ico:var(--i-shield)}
+.settlement-btn[data-state="all"] .stl-ico{--ico:var(--i-layers)}
+.settlement-btn[data-state="city"] .stl-ico{--ico:var(--i-building)}
+.settlement-btn[data-state="rural"] .stl-ico{--ico:var(--i-sprout)}
+.armed-btn[data-state="without"]{color:var(--crit);border-color:var(--crit-line);background:var(--crit-bg)}
+.armed-btn[data-state="only"]{color:var(--warn);border-color:var(--warn-line);background:var(--warn-bg)}
+.armed-btn[data-state="with"]{color:var(--ink-2)}
+.settlement-btn[data-state="city"]{color:var(--c-city);border-color:var(--info-line);background:var(--info-bg)}
+.settlement-btn[data-state="rural"]{color:var(--c-rural);border-color:var(--good-line);background:var(--good-bg)}
+.tg-dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--line-2);flex-shrink:0;transition:background-color var(--dur-2) var(--ease)}
+.toggle-chip-btn.on{color:var(--good);border-color:var(--good-line);background:var(--good-bg)}
+.toggle-chip-btn.on .tg-dot{background:var(--good)}
+
+/* جعبهٔ درون‌خطی شهر/بخش */
+.citysub-inline{flex-basis:100%;border-top:1px solid var(--line);padding-top:var(--s-3);margin-top:var(--s-1)}
+.citysub-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);margin-bottom:var(--s-2)}
+.citysub-head span{font-size:var(--fs-200);font-weight:var(--fw-medium);color:var(--ink-3)}
+.citysub-head span b{color:var(--ink);font-weight:var(--fw-bold)}
+.citysub-chips{display:flex;flex-wrap:wrap;gap:var(--s-2)}
+
+/* ═══ تب‌های حالت (آمارها / سرانه‌ها / شاخص‌ها) — تب خط‌زیر ═══ */
+.map-mode-tabs-bar{display:flex;gap:var(--s-1);margin-bottom:var(--s-3);border-bottom:1px solid var(--line)}
+.map-mode-tab{
+  position:relative;flex:1 1 0;min-height:var(--ctl-h);padding:0 var(--s-4);border:0;background:transparent;color:var(--ink-3);
+  font-size:var(--fs-300);font-weight:var(--fw-bold);text-align:center;white-space:nowrap;
+  transition:color var(--dur-1) var(--ease),background-color var(--dur-1) var(--ease);
+}
+.map-mode-tab::after{content:"";position:absolute;inset-inline:var(--s-3);bottom:-1px;height:2px;border-radius:2px 2px 0 0;background:var(--accent);transform:scaleX(0);transition:transform var(--dur-2) var(--ease)}
+.map-mode-tab:hover{color:var(--ink);background:var(--panel-2)}
+.map-mode-tab.active{color:var(--accent)}
+.map-mode-tab.active::after{transform:scaleX(1)}
+@media (min-width:1100px){.map-mode-tab{flex:0 0 auto;min-width:8rem}}
+
+/* ═══ دفتر ردیف‌ها (صفحهٔ دفتر درآمد): یک پنل، ردیف‌های خط‌کشی‌شده، نشانگر رنگی موضوع ═══ */
+.metric-stack{display:block;border:1px solid var(--line);border-radius:var(--r-panel);background:var(--panel);overflow:hidden}
+.info-box.card{
+  position:relative;overflow:hidden;cursor:pointer;
+  background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;
+  transition:background-color var(--dur-1) var(--ease);
+}
+.info-box.card:first-child{border-top:0}
+.info-box::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:3px;background:var(--topic,var(--ink-4))}
+.info-box.card:hover,.info-box.is-open{background:var(--panel-2)}
+.info-box:focus-visible{outline-offset:-2px}
+.metric-customers{--topic:var(--t-customers);--topic-bg:var(--t-customers-bg)}
+.metric-consumption{--topic:var(--t-consumption);--topic-bg:var(--t-consumption-bg)}
+.metric-income{--topic:var(--t-income);--topic-bg:var(--t-income-bg)}
+.metric-collection{--topic:var(--t-collection);--topic-bg:var(--t-collection-bg)}
+.metric-debt{--topic:var(--t-debt);--topic-bg:var(--t-debt-bg)}
+
+.info-main{
+  display:grid;grid-template-columns:minmax(0,10.5rem) minmax(0,1fr) auto;
+  grid-template-areas:"name total chev" "name split chev";align-items:center;
+  column-gap:var(--s-4);row-gap:var(--s-1);padding:var(--s-3) var(--s-4);
+}
+.info-name{grid-area:name;display:flex;align-items:center;gap:var(--s-3);font-size:var(--fs-300);font-weight:var(--fw-bold);line-height:1.4;min-width:0}
+.info-icon{width:2rem;height:2rem;border-radius:var(--r-ctl);display:grid;place-items:center;flex-shrink:0;background:var(--topic-bg);color:var(--topic);font-size:1rem}
+.info-total{grid-area:total;display:flex;align-items:baseline;gap:var(--s-2);flex-wrap:wrap;min-width:0}
+.info-total small{font-size:var(--fs-100);font-weight:var(--fw-medium);color:var(--ink-3)}
+.info-total b{font-size:var(--fs-600);line-height:1.15;font-weight:var(--fw-heavy);color:var(--ink);letter-spacing:0}
+.info-split{grid-area:split;display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s-1) var(--s-4);direction:rtl}
+.info-split span{display:inline-flex;align-items:baseline;gap:var(--s-1);font-size:var(--fs-200);color:var(--ink-2);white-space:nowrap}
+.info-split b{font-weight:var(--fw-bold);color:var(--ink)}
+.info-split em{color:var(--ink-3);font-weight:var(--fw-medium)}
+.info-split .ico,.detail-splits .ico{align-self:center;width:.95rem;height:.95rem}
+.ico-building{color:var(--c-city)}.ico-sprout{color:var(--c-rural)}
+.split-bar{flex-basis:100%;display:flex;height:4px;border-radius:2px;overflow:hidden;background:var(--paper-2)}
+.split-bar i{display:block;height:100%}
+.split-bar .sb-city{background:var(--c-city)}.split-bar .sb-rural{background:var(--c-rural)}
+.expand-icon{grid-area:chev;justify-self:end;color:var(--ink-3);font-size:var(--fs-500);line-height:1;transition:transform var(--dur-2) var(--ease),color var(--dur-2) var(--ease)}
+.is-open .expand-icon{transform:rotate(180deg);color:var(--accent)}
+.static-box{cursor:default}
+
+.info-detail{border-top:1px solid var(--line);padding:var(--s-3) var(--s-4) var(--s-4);background:var(--panel);animation:rise var(--dur-2) var(--ease)}
+.detail-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--s-2);font-size:var(--fs-300)}
+.detail-head span{color:var(--ink-3);font-size:var(--fs-200);font-weight:var(--fw-medium)}
+.detail-list{display:grid;max-height:22rem;overflow:auto;padding-inline-end:var(--s-1)}
+.detail-row{padding:var(--s-2) 0;border-bottom:1px solid var(--line)}
+.detail-row:last-child{border-bottom:0}
+.detail-row-head{display:flex;align-items:baseline;gap:var(--s-3);margin-bottom:2px}
+.detail-label{flex:1;min-width:0;font-size:var(--fs-300);font-weight:var(--fw-medium)}
+.detail-row-head>b{font-size:var(--fs-300);font-weight:var(--fw-bold)}
+.detail-row-head em{color:var(--ink-3);font-size:var(--fs-200);font-weight:var(--fw-medium)}
+.detail-splits{display:flex;gap:var(--s-4);margin-bottom:var(--s-1);font-size:var(--fs-200);color:var(--ink-2)}
+.detail-splits span{display:inline-flex;align-items:baseline;gap:var(--s-1)}
+.detail-splits b{font-weight:var(--fw-bold)}
+.detail-splits em{color:var(--ink-3)}
+.detail-bar{height:4px;background:var(--paper-2);border-radius:2px;overflow:hidden}
+.detail-bar i{display:block;height:100%;border-radius:2px;background:var(--topic,var(--accent))}
+
+@media (max-width:720px){
+  .info-main{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name chev" "total total" "split split";row-gap:var(--s-2);padding:var(--s-3)}
+  .info-total b{font-size:var(--fs-600)}
+}
+
+/* ═══ برچسب‌ها و نشان‌های وضعیت — یک خانواده ═══ */
+:is(.ax-tag,.fin-sev,.fin-chip,.zw-lv,.zw-chip,.an-sev,.an-flag,.usage-badge,.st-badge,.fin-dot,.an-sc,.an-prof){
+  display:inline-flex;align-items:center;justify-content:center;min-height:1.25rem;padding:0 var(--s-2);
+  border-radius:var(--r-pill);font-size:var(--fs-100);font-weight:var(--fw-bold);line-height:1.2;white-space:nowrap;
+  background:var(--paper-2);color:var(--ink-2);
+}
+.fin-chips{display:flex;flex-wrap:wrap;gap:var(--s-1)}
+.zw-chip{margin:1px 2px}
+.ax-tag.red,.fin-sev-3,.fin-t3,.fin-d3,.zw-lv3,.zw-chip-l3,.an-sev-error,.an-sc-vhigh,.an-prof-A{background:var(--crit-bg);color:var(--crit)}
+.ax-tag.orange,.fin-sev-2,.fin-t2,.fin-d2,.an-sev-warning,.an-sc-high,.an-prof-B,.an-flag-high,.st-badge{background:var(--orange-bg);color:var(--orange)}
+.fin-sev-1,.fin-t1,.fin-d1,.zw-lv2,.zw-chip-l2,.an-sc-mid{background:var(--warn-bg);color:var(--warn)}
+.ax-tag.green,.fin-good,.an-sc-low,.an-prof-D{background:var(--good-bg);color:var(--good)}
+.zw-lv1,.zw-chip-l1,.an-flag,.an-sev-info,.an-prof-C,.an-flag-low{background:var(--info-bg);color:var(--info)}
+.ax-tag.none{background:var(--paper-2);color:var(--ink-3)}
+.usage-badge{margin-inline-start:var(--s-2);min-height:1.125rem;font-size:var(--fs-100);background:var(--paper-2);color:var(--ink-3)}
+.usage-badge.active{background:var(--accent-soft);color:var(--accent)}
+.fin-dot{min-width:1.25rem;margin-inline-end:var(--s-1)}
+.an-sc{min-width:1.75rem;border-radius:var(--r-ctl)}
+.an-prof{border-radius:var(--r-ctl)}
+.an-c3{display:inline-grid;place-items:center;width:1.25rem;height:1.25rem;border-radius:50%;font-size:var(--fs-100);font-weight:var(--fw-heavy);margin-inline-end:3px;border:1px solid transparent}
+.an-c3-rv{background:var(--crit-bg);color:var(--crit);border-color:var(--crit-line)}
+.an-c3-ok{background:var(--good-bg);color:var(--good);border-color:var(--good-line)}
+.an-c3-na{background:transparent;color:var(--ink-3);border:1px dashed var(--line-2)}
+.fin-neg{color:var(--crit);font-weight:var(--fw-bold)}.fin-pos{color:var(--good);font-weight:var(--fw-bold)}
+.an-st-rv{color:var(--crit)}.an-st-ok{color:var(--good)}.an-st-na{color:var(--ink-3)}
+
+/* ═══ جدول‌ها — الگوی مشترک (سرستون چسبنده، خط مویی، ارقام جدولی) ═══ */
+.an-table-wrap,.fin-tw,.ax-hm-scroll{
+  display:block;width:100%;max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  border:1px solid var(--line);border-radius:var(--r-ctl);background:var(--panel);
+}
+.an-table-wrap,.fin-tw{max-height:min(65vh,36rem)}
+:is(.an-table,.fin-table,.zw-table){font-size:var(--fs-200);width:100%}
+:is(.an-table,.fin-table,.zw-table) th{
+  position:sticky;top:0;z-index:3;padding:var(--s-2) var(--s-3);text-align:right;white-space:nowrap;
+  background:var(--panel-2);color:var(--ink-2);font-weight:var(--fw-bold);box-shadow:0 1px 0 var(--line-2);
+}
+:is(.an-table,.fin-table,.zw-table) td{padding:var(--s-2) var(--s-3);border-top:1px solid var(--line);color:var(--ink);vertical-align:middle}
+.an-table{min-width:60rem;width:max-content;max-width:none}
+.an-table td{white-space:normal}
+.fin-table{width:max-content;min-width:100%}
+.fin-table td{white-space:nowrap}
+.fin-main-table{min-width:94rem}.fin-drill-table{min-width:48rem}
+:is(.an-table,.fin-table,.zw-table) td.num,.an-table .num{font-weight:var(--fw-medium);direction:ltr;text-align:left}
+.an-table tr.is-alert{background:var(--orange-bg)}
+.an-table th.lv-on{background:var(--accent-soft);color:var(--accent)}
+.an-table td.lv-on{background:color-mix(in srgb,var(--accent) 5%,transparent)}
+.an-table tr.an-row,.fin-row,.fin-drow,.zw-table tbody tr{cursor:pointer}
+:is(.an-table tr.an-row,.fin-row,.fin-drow,.zw-table tbody tr):hover td{background:var(--panel-2)}
+.an-table tr.an-row.is-open td,.fin-row.is-open td{background:var(--accent-soft)}
+.an-table tr.an-detail-row>td,.fin-detail-row>td{background:var(--panel-2);padding:var(--s-3)!important;white-space:normal!important}
+.fin-table td.fin-chips,.zw-table td.zw-chips{white-space:normal;min-width:11rem}
+.fin-name{font-weight:var(--fw-bold)}
+.fin-rs3 td:first-child{box-shadow:inset -3px 0 0 var(--crit)}.fin-rs2 td:first-child{box-shadow:inset -3px 0 0 var(--orange)}.fin-rs1 td:first-child{box-shadow:inset -3px 0 0 var(--warn-line)}
+.zw-table tr.zw-rl3 td:first-child{box-shadow:inset -3px 0 0 var(--crit)}
+.zw-table tr.zw-rl2 td:first-child{box-shadow:inset -3px 0 0 var(--warn-line)}
+.zw-table tr.zw-rl1 td:first-child{box-shadow:inset -3px 0 0 var(--info)}
+
+/* ═══ منوی تنظیمات ═══ */
+#settingsRoot{position:relative;z-index:var(--z-modal)}
+#settingsRoot:not(.open){display:none}
+.st-backdrop{position:fixed;inset:0;background:rgba(28,38,48,.34);animation:fade var(--dur-2) var(--ease)}
+.st-panel{
+  position:fixed;top:calc(var(--topbar-h) + var(--s-2));left:var(--gutter);width:min(30rem,calc(100vw - 1rem));max-height:calc(100dvh - var(--topbar-h) - var(--s-4));
+  display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line-2);border-radius:var(--r-panel);box-shadow:var(--shadow-pop);overflow:hidden;
+  animation:rise var(--dur-2) var(--ease);
+}
+.st-panel header{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);padding:var(--s-3) var(--s-4);border-bottom:1px solid var(--line);background:var(--panel-2)}
+.st-panel h2{font-size:var(--fs-400);font-weight:var(--fw-bold)}
+.st-close{display:grid;place-items:center;width:2.25rem;height:2.25rem;border:0;background:transparent;font-size:1.5rem;line-height:1;color:var(--ink-3);border-radius:var(--r-ctl)}
+.st-close:hover{background:var(--paper-2);color:var(--ink)}
+.st-intro{padding:var(--s-2) var(--s-4);font-size:var(--fs-200);color:var(--ink-3);border-bottom:1px solid var(--line);max-width:var(--measure)}
+.st-body{overflow-y:auto;padding:var(--s-2) var(--s-3) var(--s-3);display:grid;gap:var(--s-2);align-content:start}
+.st-group{border:1px solid var(--line);border-radius:var(--r-ctl);background:var(--panel)}
+.st-group>summary{list-style:none;cursor:pointer;min-height:2.75rem;padding:0 var(--s-3);font-size:var(--fs-300);font-weight:var(--fw-bold);display:flex;align-items:center;justify-content:space-between;gap:var(--s-2)}
+.st-group>summary::-webkit-details-marker{display:none}
+.st-group>summary::after{content:"";width:1rem;height:1rem;background-color:var(--ink-3);-webkit-mask:var(--i-chevron-down) center/contain no-repeat;mask:var(--i-chevron-down) center/contain no-repeat;transition:transform var(--dur-2) var(--ease)}
+.st-group[open]>summary::after{transform:rotate(180deg)}
+.st-group>summary span{flex:1}
+.st-section{padding:0 var(--s-3) var(--s-3);border-top:1px solid var(--line)}
+.st-section h4{margin:var(--s-3) 0 var(--s-1);font-size:var(--fs-300);font-weight:var(--fw-bold);color:var(--accent)}
+.st-note{margin:0 0 var(--s-2);font-size:var(--fs-100);color:var(--ink-3);line-height:1.8}
+.st-item{display:flex;align-items:center;justify-content:space-between;gap:var(--s-3);padding:var(--s-2);border-radius:var(--r-ctl);border-inline-start:3px solid transparent}
+.st-item.modified{background:var(--orange-bg);border-inline-start-color:var(--orange)}
+.st-item-list{flex-direction:column;align-items:stretch}
+.st-label{flex:1;min-width:0;font-size:var(--fs-300);font-weight:var(--fw-medium);line-height:1.6}
+.st-label small{display:block;font-size:var(--fs-100);color:var(--ink-3);font-weight:var(--fw-regular)}
+.st-ctl{display:flex;align-items:center;gap:var(--s-2);flex-shrink:0}
+.st-item-list .st-ctl{flex-shrink:1}
+.st-unit{font-size:var(--fs-100);color:var(--ink-3);min-width:1.5rem}
+.st-reset{border:0;background:transparent;color:var(--ink-4);font-size:var(--fs-500);padding:0 var(--s-1);visibility:hidden;cursor:default}
+.st-item.modified .st-reset{visibility:visible;color:var(--orange);cursor:pointer}
+.st-chips{display:flex;flex-wrap:wrap;gap:var(--s-2)}
+.st-panel footer{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);padding:var(--s-3) var(--s-4);border-top:1px solid var(--line);background:var(--panel-2)}
+.st-total{font-size:var(--fs-200);color:var(--ink-3)}
+@media (max-width:720px){
+  .st-panel{left:var(--s-2);right:var(--s-2);width:auto;top:calc(var(--topbar-h) + var(--s-1));max-height:calc(100dvh - var(--topbar-h) - var(--s-2))}
+  .st-item{flex-wrap:wrap}
+}
+
+/* ═══ اعلان، حالت‌های خالی/بارگذاری، راهنمای شناور نقشه ═══ */
+.app-toast{
+  position:fixed;top:calc(var(--topbar-h) + var(--s-2));left:50%;transform:translate(-50%,-8px);z-index:var(--z-toast);width:max-content;max-width:min(92vw,35rem);
+  padding:var(--s-2) var(--s-4);border-radius:var(--r-panel);font-size:var(--fs-300);line-height:1.7;text-align:center;
+  background:var(--panel);color:var(--ink);border:1px solid var(--line-2);box-shadow:var(--shadow-pop);
+  opacity:0;pointer-events:none;transition:opacity var(--dur-2) var(--ease),transform var(--dur-2) var(--ease);
+}
+.app-toast.show{opacity:1;transform:translate(-50%,0)}
+.app-toast[data-kind="ok"]{border-color:var(--good-line);background:var(--good-bg)}
+.app-toast[data-kind="warn"]{border-color:var(--warn-line);background:var(--warn-bg)}
+.app-toast[data-kind="err"]{border-color:var(--crit-line);background:var(--crit-bg)}
+
+.empty{padding:var(--s-7) var(--s-5);text-align:center}
+.empty h3{font-size:var(--fs-500);margin-bottom:var(--s-2)}
+.empty p{font-size:var(--fs-300);color:var(--ink-3);max-width:var(--measure);margin-inline:auto}
+.empty .hint{font-size:var(--fs-200);margin-top:var(--s-3);color:var(--accent)}
+.empty code{background:var(--paper-2);padding:1px var(--s-2);border-radius:4px;font-size:var(--fs-200);direction:ltr;display:inline-block}
+.loading-state .loader{width:2.25rem;height:2.25rem;margin:0 auto var(--s-4);border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
+.an-empty,.ax-empty,.fin-empty,.rp-empty,.an-fempty,.fin-fempty{font-size:var(--fs-300);color:var(--ink-3)}
+.fin-empty{margin:var(--s-2) 0;padding:var(--s-4);text-align:center;font-weight:var(--fw-bold);background:var(--paper-2);border-radius:var(--r-ctl)}
+.an-sys-err,.fin-err{padding:var(--s-3) var(--s-4);border-radius:var(--r-ctl);background:var(--crit-bg);border:1px solid var(--crit-line);color:var(--crit);font-size:var(--fs-300);font-weight:var(--fw-bold)}
